@@ -17,7 +17,5 @@ void SD_LowLevel_DMA_RxConfig(uint32_t *BufferSRC, uint32_t BufferSize);
 uint32_t SD_DMAEndOfTransferStatus(void);
 
 u8 SDcardInit();
-void Test_printCardInfo();
-void Test_readBlock();
 
 #endif // !__SDCARD__H__

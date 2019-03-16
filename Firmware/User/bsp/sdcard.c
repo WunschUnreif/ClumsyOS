@@ -1,5 +1,4 @@
 #include "bsp.h"
-#include <stdio.h>
 
 uint8_t * sdcardBuffer = (uint8_t *)(MEMORY_BASE + 4 * 1024);
 uint16_t  sdcardBufferSize = 512;
@@ -96,20 +95,4 @@ u8 SDcardInit() {
     NVIC_Init(&NVIC_InitStructure);
 
     return 1;
-}
-
-void Test_readBlock() {
-    // SD_ReadMultiBlocks(buffer, 0, 512, 2);
-    // SD_WaitReadOperation();
-    // printf("read finish\r\n");
-    // while(SD_GetStatus() != SD_TRANSFER_OK);
-    // for(uint16_t i = 0; i < 1024; ++i) {
-    //     printf("[%d] = %x\r\n", i, buffer[i]);
-    // }
-}
-
-void Test_printCardInfo() {
-    SD_CardInfo cardinfo;
-    SD_GetCardInfo(&cardinfo);
-    printf("Size : %lx = %lu\r\n", cardinfo.CardCapacity, cardinfo.CardCapacity);
 }

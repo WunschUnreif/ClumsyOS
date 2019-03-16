@@ -16,10 +16,10 @@ HEADERS += bsp.h os.h
 
 PROJ_NAME = main
 
-vpath %.c User User/os User/bsp User/third
+vpath %.c User User/os User/bsp User/third/st_sdio User/third/fatfs
 vpath %.a Lib
 vpath %.s Startup 
-vpath %.h User User/os User/bsp User/third
+vpath %.h User User/os User/bsp User/third/st_sdio User/third/fatfs
 
 CC=arm-none-eabi-gcc
 OBJCOPY=arm-none-eabi-objcopy
@@ -31,7 +31,8 @@ CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m3 -mthumb-interwork
 CFLAGS += -DUSE_STDPERIPH_DRIVER
 CFLAGS += -DSTM32F10X_HD
 
-CFLAGS += -ILib/inc -ICMSIS -IUser -lc -IUser/bsp -IUser/os -IUser/third
+CFLAGS += -ILib/inc -ICMSIS -IUser -lc -IUser/bsp -IUser/os -IUser/third/fatfs 
+CFLAGS += -IUser/third/st_sdio
 
 OBJS = $(SRCS:.c=.o)
 
